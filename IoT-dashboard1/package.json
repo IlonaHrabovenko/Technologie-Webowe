@@ -1,0 +1,25 @@
+{
+  "name": "iot-dashboard1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node lib/index.ts",
+    "build": "tsc",
+    "watch": "nodemon --ext ts --exec ts-node lib/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/mongoose": "^5.11.96",
+    "express": "^4.21.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.1",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1"
+  }
+}
