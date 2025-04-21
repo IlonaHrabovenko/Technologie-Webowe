@@ -1,13 +1,16 @@
 import { Router, Request, Response } from 'express';
 import Controller from '../interfaces/controller.interface';
+import { Server } from 'socket.io';
 
 class ItemController implements Controller {
     public path = '/api/items';
     public router = Router();
     private items: { id: number; name: string }[] = [];
     private nextId = 1;
+    private io?: Server;
 
-    constructor() {
+    constructor(io?: Server) {
+        this.io = io;
         this.initializeRoutes();
     }
 
@@ -22,6 +25,7 @@ class ItemController implements Controller {
     private createItem = (req: Request, res: Response) => {
         const newItem = { id: this.nextId++, name: req.body.name };
         this.items.push(newItem);
+        // this.io?.emit("message", "nowy item utworzony"); // możesz dodać, jeśli chcesz
         res.status(201).json(newItem);
     };
 
